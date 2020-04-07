@@ -83,6 +83,8 @@ const App = () => {
       <hr/>
       {isError && <p>Something went wrong...</p>}
       {isLoading ? (<p>Loading...</p>) : <List list={searchedServices} onRemoveItem={handleRemoveService}/> }     
+
+      <h2>contact us at 801-644-6119 for a free quote!</h2>
     </div>
   );
 };
