@@ -77,7 +77,7 @@ const App = () => {
       <h1>Tamed Woods</h1>
 
       <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch} search={searchTerm}>
-        <strong>enchilada: </strong>
+        <strong>Search: </strong>
       </InputWithLabel>
 
       <hr/>
