@@ -82,7 +82,7 @@ const App = () => {
 
       <hr/>
       {isError && <p>Something went wrong...</p>}
-      {isLoading ? (<p>Loading...</p>) : <List list={searchedServices} onRemoveItem={handleRemoveService}/> }     
+      {isLoading ? (<p>Loading...</p>) : <List list={searchedServices}/> }     
 
       <h2>contact us at 801-644-6119 for a free quote!</h2>
     </div>
@@ -106,21 +106,17 @@ const InputWithLabel = ({id, value, type="text", onInputChange, isFocused, child
   );
 }
 
-const List = ({list, onRemoveItem}) => (
+const List = ({list}) => (
   list.map(item => (
-    <Item key={item.objectID} item={item} onRemoveItem={onRemoveItem}/>
+    <Item key={item.objectID} item={item}/>
   ))
 );
 
-const Item = ({item, onRemoveItem}) => {
-  const handleRemoveItem = () => {
-    onRemoveItem(item);
-  }
+const Item = ({item}) => {
 
   return (
     <div>
       <span>{item.name}, {item.cost}</span>
-      <span><button type="button" onClick={() => handleRemoveItem(item)}>Dismiss</button></span>
     </div>
   );
 };
