@@ -1,26 +1,13 @@
 import React from 'react';
 import './App.css';
+import InputWithLabel from './InputWithLabel/index';
+import List from './List/index';
+import Services from './resources/services.json'
 
-const initialServices = [
-  {
-    name: "lawn maintenance",
-    cost: "$35 (variable rate)",
-    objectID: 0
-  },
-  {
-    name: "tree pruning",
-    cost: "$45 per tree (variable rate)",
-    objectID: 1
-  },
-  {
-    name: "shrub trimming",
-    cost: "$80 (variable rate)",
-    objectID: 2
-  }
-]
+const servicesFromJson = Services;
 
 const getAsyncServices = () => {
-  return new Promise(resolve => resolve({data: {services: initialServices}}));
+  return new Promise(resolve => resolve({data: {services: servicesFromJson}}));
 }
 
 const useSemiPersistentState = (key, initialState) => {
@@ -34,9 +21,13 @@ const useSemiPersistentState = (key, initialState) => {
 
 const App = () => {
 
-  const [searchTerm, setSearchTerm] = useSemiPersistentState('search', '');
+  //TESTING STUFF----------------------------
 
-  const [services, setServices] = React.useState([]);
+  
+
+  //-----------------------------------------
+
+  const [searchTerm, setSearchTerm] = useSemiPersistentState('search', '');
 
   const [isLoading, setIsLoading] = React.useState(false);
 
@@ -46,17 +37,9 @@ const App = () => {
     setIsLoading(true);
 
     getAsyncServices().then(result => {
-      setServices(result.data.services);
       setIsLoading(false);
     }).catch(() => setIsError(true));
   }, []);
-
-  const handleRemoveService = item => {
-    const newServices = services.filter(
-      service => item.objectID !== service.objectID
-    );
-    setServices(newServices);
-  }
 
   React.useEffect(() => {
     localStorage.setItem('search', searchTerm);
@@ -66,14 +49,14 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
-  const searchedServices = services.filter(service => {
+  const searchedServices = Services.filter(service => {
     return (
       service.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
   return (
-    <div>
+    <div className="main-div">
       <h1>Tamed Woods</h1>
 
       <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch} search={searchTerm}>
@@ -85,38 +68,6 @@ const App = () => {
       {isLoading ? (<p>Loading...</p>) : <List list={searchedServices}/> }     
 
       <h2>contact us at 801-644-6119 for a free quote!</h2>
-    </div>
-  );
-};
-
-const InputWithLabel = ({id, value, type="text", onInputChange, isFocused, children}) => {
-  const inputRef = React.useRef();
-
-  React.useEffect(() => {
-    if (isFocused && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [isFocused]);
-
-  return (
-    <div>
-      <label htmlFor={id}>{children}</label> &nbsp;
-      <input ref={inputRef} id={id} type={type} value={value} autoFocus={isFocused} onChange={onInputChange}/>
-    </div>
-  );
-}
-
-const List = ({list}) => (
-  list.map(item => (
-    <Item key={item.objectID} item={item}/>
-  ))
-);
-
-const Item = ({item}) => {
-
-  return (
-    <div>
-      <span>{item.name}, {item.cost}</span>
     </div>
   );
 };

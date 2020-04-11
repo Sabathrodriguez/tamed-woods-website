@@ -1,0 +1,18 @@
+[
+    { 
+        "name": "lawn maintenance",
+        "cost": "$35 (variable rate)",
+        "objectID": 0
+    },
+    {
+        "name": "tree pruning",
+        "cost": "$45 per tree (variable rate)",
+        "objectID": 1
+    },
+    {
+        "name": "shrub trimming",
+        "cost": "$80 (variable rate)",
+        "objectID": 2
+    }
+]
+
