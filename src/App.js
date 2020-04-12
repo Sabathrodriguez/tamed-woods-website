@@ -2,7 +2,11 @@ import React from 'react';
 import './App.css';
 import InputWithLabel from './InputWithLabel/index';
 import List from './List/index';
-import Services from './resources/services.json'
+import Services from './resources/services.json';
+import styledComponents from 'styled-components';
+import SearchForm from './SearchForm/index';
+
+const Div = styledComponents
 
 const servicesFromJson = Services;
 
@@ -23,7 +27,7 @@ const App = () => {
 
   //TESTING STUFF----------------------------
 
-  
+
 
   //-----------------------------------------
 
@@ -56,18 +60,25 @@ const App = () => {
   });
 
   return (
-    <div className="main-div">
-      <h1>Tamed Woods</h1>
+    <div >
 
-      <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={handleSearch} search={searchTerm}>
-        <strong>Search: </strong>
-      </InputWithLabel>
+      <div className="div_1">
+        <h1>Tamed Woods</h1>
+        <SearchForm searchTerm={searchTerm} onSearchInput={handleSearch} OnSearchSubmit={handleSearch} />
+      </div>
 
-      <hr/>
-      {isError && <p>Something went wrong...</p>}
-      {isLoading ? (<p>Loading...</p>) : <List list={searchedServices}/> }     
+      <div className="div_2">
 
-      <h2>contact us at 801-644-6119 for a free quote!</h2>
+      </div>
+
+      <div className="div_3">
+
+      </div>
+
+      <div className="div_4">
+
+      </div>
+
     </div>
   );
 };
