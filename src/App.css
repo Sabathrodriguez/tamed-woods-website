@@ -1,5 +1,7 @@
 * {
   border: 1px red solid;
+  margin: 0px;
+  padding: 0px;
 }
 
 .div_1 {
@@ -9,7 +11,10 @@
 .div_1 > h1{
   background-color: blue;
   text-align: center;
-  width: 70%;
   margin: 0;
   padding: 20px 0;
+}
+
+.test-maindiv {
+  background-color: lawngreen;
 }
