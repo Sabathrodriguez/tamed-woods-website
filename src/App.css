@@ -1,20 +1,30 @@
 * {
   border: 1px red solid;
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
 }
 
 .div_1 {
   display: flex;
 }
-
-.div_1 > h1{
-  background-color: blue;
-  text-align: center;
-  margin: 0;
-  padding: 20px 0;
+.div_1 > h1 {
+  background-color: dodgerblue;
+  width: 50%;
 }
 
-.test-maindiv {
-  background-color: lawngreen;
+.mainSearchForm-div {
+  background-color: orangered;
+  width: 50%;
+}
+
+.searchForm-div {
+  display: flex;
+}
+
+.searchForm-div > button {
+  width: 30%;
+}
+
+.mainInputWithLabel-div {
+  width: 70%;
 }

@@ -4,16 +4,17 @@ import '../InputWithLabel/InputWithLabel.css';
 
 
 const SearchForm = ({searchTerm, onSearchInput, onSearchSubmit}) => (
-    <form onSubmit={onSearchSubmit} className="test-form">
-        
-        <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={onSearchInput}>
-            <strong>search:</strong>
-        </InputWithLabel>
+    <div className="mainSearchForm-div">
+        <form onSubmit={onSearchSubmit} className="searchForm-div">
+            <InputWithLabel id="search" value={searchTerm} isFocused onInputChange={onSearchInput}>
+                <strong>search:</strong>
+            </InputWithLabel>
 
-        <button type='submit' disabled={!searchTerm}>
-            submit
-        </button>
-    </form>
+            <button type='submit' disabled={!searchTerm}>
+                submit
+            </button>
+        </form>
+    </div>
 );
 
 export default SearchForm;

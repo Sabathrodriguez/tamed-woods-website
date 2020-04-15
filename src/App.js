@@ -60,7 +60,7 @@ const App = () => {
   });
 
   return (
-    <div className="test-maindiv">
+    <div className="main_div">
 
       <div className="div_1">
         <h1>Tamed Woods</h1>

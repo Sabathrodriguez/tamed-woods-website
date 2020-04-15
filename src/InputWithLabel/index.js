@@ -1,5 +1,5 @@
 import React from 'react';
-import './InputWithLabel.css';
+import '../App.css';
 
 const InputWithLabel = ({id, value, type="text", onInputChange, isFocused, children}) => {
     const inputRef = React.useRef();
@@ -11,7 +11,7 @@ const InputWithLabel = ({id, value, type="text", onInputChange, isFocused, child
     }, [isFocused]);
   
     return (
-      <div className='inputWithLabel'>
+      <div className="mainInputWithLabel-div">
         <label htmlFor={id}>{children}</label> &nbsp;
         <input ref={inputRef} id={id} type={type} value={value} autoFocus={isFocused} onChange={onInputChange}/>
       </div>
