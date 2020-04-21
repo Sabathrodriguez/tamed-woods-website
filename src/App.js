@@ -68,7 +68,19 @@ const App = () => {
       </div>
 
       <div className="div_2">
-
+        <ul className="servicesList">
+          {Services.map(el => (
+            <li>{el.name}</li>
+          ))}
+        </ul>
+        <div className="slideContainer">
+            <div className="imageContainer">
+              {/* link to create slider
+              https://www.google.com/search?q=how+to+create+an+image+slide+in+css&rlz=1C5CHFA_enUS881US886&oq=how+to+create+an+image+slide+in+css&aqs=chrome..69i57j0l7.104085j0j7&sourceid=chrome&ie=UTF-8#kpvalbx=_Y9mXXo3kEpC5tAbAmYGAAw36
+               */}
+              <img src="https://www.fillmurray.com/500/400"/>
+            </div>
+        </div>
       </div>
 
       <div className="div_3">

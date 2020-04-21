@@ -4,6 +4,8 @@
   padding: 0;
 }
 
+/* div 1 --------------------------*/
+
 .div_1 {
   display: flex;
 }
@@ -28,3 +30,22 @@
 .mainInputWithLabel-div {
   width: 70%;
 }
+
+/* div 1 ------------------------*/
+
+/* div 2 ----------------------- */
+
+.div_2 {
+  display: flex;
+}
+
+.servicesList {
+  width: 50%;
+}
+
+.slideContainer {
+  width: 50%;
+}
+
+/* div 2 ----------------------- */
+
